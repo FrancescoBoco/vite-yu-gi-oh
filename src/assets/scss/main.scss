@@ -1,4 +1,6 @@
 @use "partials/variables" as *;
+// Import all of Bootstrap's CSS
+@import "bootstrap/scss/bootstrap";
 
 main{
     // per attingere alla variabile bisogna richiamarla,
