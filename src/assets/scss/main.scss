@@ -1,0 +1,8 @@
+@use "partials/variables" as *;
+
+main{
+    // per attingere alla variabile bisogna richiamarla,
+    // con as *, è come se la richiamassimo sepre 
+
+    color: $main-color
+}
