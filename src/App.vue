@@ -4,6 +4,7 @@
 import Header from './components/Header.vue';
 import Main from './components/Main.vue';
 import Footer from './components/Footer.vue';
+import axios  from 'axios';
 
 export default {
   name: "App",
@@ -14,10 +15,18 @@ export default {
   },
   data(){
     return{
-
+        card: []
     }
   },
   methods: {
+
+  },
+  created(){
+    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
+      .then(response => {
+        console.log(response.data.data)
+         this.card = response.data.data
+      });
 
   }
 }
@@ -26,12 +35,13 @@ export default {
 <template>
   <Header />
 
-  <Main/>
+  <Main :card="card" :cardCount="card.length" />
+
    
 
-  <Footer/>
+  <Footer  />
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @use "./assets/scss/main.scss";
 </style>
