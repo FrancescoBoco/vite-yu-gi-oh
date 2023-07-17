@@ -21,22 +21,22 @@ export default {
 </script>
 
 <template>
-    <div class="container">
-        <div>
-            <select name="cars" id="cars">
+    <div class="wrapper">
+
+    <div class="container ">
+        <div class="py-3">
+            <select class="" name="cars" id="cars">
                 <option value="volvo">Alien</option>
                 <option value="saab">Human</option>
                 <option value="mercedes">Roboot</option>
              </select>
         </div>
-        <div class="row">
-            <div class="col">
-                <div class="container">
-                    <div class="row col text-center">
-                        <strong>
-                            found {{ cardCount  }} card
-                        </strong>
-                    </div>
+        <div class="row py-4 bg-white">
+            <div class="row">
+                <div class=" col py-1 bg-black text-light">
+                    <strong>
+                        found {{ cardCount  }} card
+                    </strong>
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-3"
@@ -57,12 +57,17 @@ export default {
             </div>
         </div>
     </div>
+</div>
+
 
 
 </template>
 
 
 <style lang="scss" scoped>
+.wrapper{
+    background-color: orange;
+}
 .my-container{
     max-width: 1200px;
     margin: 0 auto;
