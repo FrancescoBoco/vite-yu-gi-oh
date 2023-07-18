@@ -5,6 +5,7 @@ import Header from './components/Header.vue';
 import Main from './components/Main.vue';
 import Footer from './components/Footer.vue';
 import axios  from 'axios';
+import {store} from '../src/store.js'
 
 export default {
   name: "App",
@@ -15,7 +16,8 @@ export default {
   },
   data(){
     return{
-        card: []
+        store,
+        // card: [],
     }
   },
   methods: {
@@ -25,7 +27,7 @@ export default {
     axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
       .then(response => {
         console.log(response.data.data)
-         this.card = response.data.data
+         this.store.cards = response.data.data
       });
 
   }
@@ -35,8 +37,10 @@ export default {
 <template>
   <Header />
 
-  <Main :card="card" :cardCount="card.length" />
-
+  <Main
+      />
+      <!-- :card="card" 
+     :cardCount="card.length" -->
    
 
   <Footer  />

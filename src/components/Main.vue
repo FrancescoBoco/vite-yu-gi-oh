@@ -1,20 +1,17 @@
+
 <script>
+import {store} from '../store'
 export default {
   data(){
     return{
+        store,
     }
   },
   methods: {
 
   },
   props: {
-    card: {
-        type: Array,
-    },
 
-    cardCount: {
-        type: Number,
-    }
   }
 }
 
@@ -27,8 +24,8 @@ export default {
         <div class="py-3">
             <select class="" name="cars" id="cars">
                 <option value="volvo">Alien</option>
-                <option value="saab">Human</option>
-                <option value="mercedes">Roboot</option>
+                <option value="saab">Noble Knight</option>
+                <option value="mercedes">Melodious</option>
              </select>
         </div>
         <div class="row py-4 bg-white">
@@ -40,9 +37,9 @@ export default {
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-3"
-            v-for="(card, i) in card " :key="i">
-                <div>
-                    <img :src="card.card_images[1]" alt="">
+            v-for="(card, i) in this.store.cards " :key="i">
+                <div >
+                    <img  class='img' :src="card.card_images[0].image_url" alt="">
                 </div>
                 <div>
                     <h3>
@@ -65,6 +62,9 @@ export default {
 
 
 <style lang="scss" scoped>
+.img{
+    width: 100%;
+}
 .wrapper{
     background-color: orange;
 }
