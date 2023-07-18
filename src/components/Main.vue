@@ -1,6 +1,8 @@
 
 <script>
 import {store} from '../store'
+import axios  from 'axios';
+
 export default {
   data(){
     return{
@@ -8,7 +10,23 @@ export default {
     }
   },
   methods: {
+    onSelect() {
+        console.log(this.store.searchType)
 
+        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0', {
+        params:{
+        
+            archetype: this.store.searchType
+        }
+
+    })
+      .then(response => {
+        console.log(response.data.data)
+         this.store.cards = response.data.data
+         this.store.cardsCount = this.store.cards.length
+
+      });
+    }
   },
   props: {
 
@@ -22,7 +40,7 @@ export default {
 
     <div class="container ">
         <div class="py-3">
-            <select v-model="store.searchType" class="" name="cars" id="cars">
+            <select v-model="store.searchType" class="" name="cars" id="cars" @change="onSelect">
                 <option value="Alien">Alien</option>
                 <option value="Noble Knight">Noble Knight</option>
                 <option value="Melodious">Melodious</option>
