@@ -2,5 +2,7 @@ import {reactive} from 'vue'
 
 export const store = reactive({
     cards: [],
-    loading: true
+    cardsCount: "",
+    loading: true,
+    searchType: ""
 })

@@ -22,17 +22,20 @@ export default {
 
     <div class="container ">
         <div class="py-3">
-            <select class="" name="cars" id="cars">
-                <option value="volvo">Alien</option>
-                <option value="saab">Noble Knight</option>
-                <option value="mercedes">Melodious</option>
+            <select v-model="store.searchType" class="" name="cars" id="cars">
+                <option value="Alien">Alien</option>
+                <option value="Noble Knight">Noble Knight</option>
+                <option value="Melodious">Melodious</option>
              </select>
+             <div >
+                Prova {{ store.searchType }}
+             </div>
         </div>
         <div class="row py-4 bg-white">
             <div class="row">
                 <div class=" col py-1 bg-black text-light">
                     <strong>
-                        found {{ cardCount  }} card
+                        found {{ store.cardsCount  }} card
                     </strong>
                 </div>
             </div>

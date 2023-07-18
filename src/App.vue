@@ -24,10 +24,17 @@ export default {
 
   },
   created(){
-    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
+    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0', {
+        params:{
+            status: this.store.searchType
+        }
+
+    })
       .then(response => {
         console.log(response.data.data)
          this.store.cards = response.data.data
+         this.store.cardsCount = this.store.cards.length
+
       });
 
   }
